@@ -89,3 +89,33 @@ def test_break_down_hundreds_equal_to_500():
     result = convert_hundredth_num_to_numeral_breakdown(number)
     # Assert
     assert result == answer
+
+
+def test_break_down_tens_greater_than_50_to_components():
+    # Arrange
+    number = 80
+    answer = [50, 10, 10, 10]
+    # Act
+    result = convert_hundredth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer
+
+
+def test_break_down_tens_less_than_50_to_components():
+    # Arrange
+    number = 30
+    answer = [10, 10, 10]
+    # Act
+    result = convert_hundredth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer
+
+
+def test_break_down_tens_equal_to_50():
+    # Arrange
+    number = 50
+    answer = [50]
+    # Act
+    result = convert_hundredth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer

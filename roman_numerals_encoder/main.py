@@ -53,7 +53,12 @@ def convert_hundredth_num_to_numeral_breakdown(hun_num: int) -> list[int]:
     # TODO: Create a function that component roman numbers in a unique ten unit
 
 
-    # To make up 8000 in roman numerals you need 8 1000s because there's no 8.
+def convert_tens_num_to_numeral_breakdown(tens_num: int) -> list[int]:
+    tens_components = []
+
+    ...
+
+
 if __name__ == "__main__":
     print(break_num_into_unit_values(1989))
     print(convert_thousandth_num_to_numeral_breakdown(4000))
