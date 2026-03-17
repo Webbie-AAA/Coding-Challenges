@@ -13,6 +13,48 @@ def break_num_into_unit_values(number: int) -> list[int]:
     return unit_list
     ...
 
+# TODO: Create a helper function that finds out the sum of all integers in a list
+# TODO: Create a function that create component roman numbers in a unique thousand unit
 
+
+def convert_thousandth_num_to_numeral_breakdown(th_num: int) -> list[int]:
+    thousandth_components = []
+    range_count = int((str(th_num)[0]))
+    for i in range(range_count):
+        if th_num >= 1000:
+            thousandth_components.append(1000)
+    return thousandth_components
+
+    # TODO: Create a function that checks component roman numbers in a unique hundred unit
+
+
+def convert_hundredth_num_to_numeral_breakdown(hun_num: int) -> list[int]:
+    hundredth_components = []
+    total = 0
+
+    if hun_num < 500:
+        while total != hun_num:
+            total += 100
+            hundredth_components.append(100)
+        return hundredth_components
+    if hun_num > 500:
+        total += 500
+        hundredth_components.append(500)
+        while total != hun_num:
+            total += 100
+            hundredth_components.append(100)
+        return hundredth_components
+    if hun_num == 500:
+        hundredth_components.append(500)
+    return hundredth_components
+
+    ...
+
+    # TODO: Create a function that component roman numbers in a unique ten unit
+
+
+    # To make up 8000 in roman numerals you need 8 1000s because there's no 8.
 if __name__ == "__main__":
     print(break_num_into_unit_values(1989))
+    print(convert_thousandth_num_to_numeral_breakdown(4000))
+    print(convert_hundredth_num_to_numeral_breakdown(100))

@@ -1,4 +1,4 @@
-from main import break_num_into_unit_values
+from main import break_num_into_unit_values, convert_thousandth_num_to_numeral_breakdown, convert_hundredth_num_to_numeral_breakdown
 
 
 def test_given_a_4_digit_num_return_units():
@@ -37,5 +37,55 @@ def test_given_a_1_digit_num_return_units():
     answer = [5]
     # Act
     result = break_num_into_unit_values(number)
+    # Assert
+    assert result == answer
+
+
+def test_convert_a_big_thousandth_to_thousand_components():
+    # Arrange
+    number = 8000
+    answer = [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000]
+    # Act
+    result = convert_thousandth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer
+
+
+def test_convert_a_single_thousand_to_thousand_components():
+    # Arrange
+    number = 1000
+    answer = [1000]
+    # Act
+    result = convert_thousandth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer
+
+
+def test_break_down_hundreds_larger_than_500_to_components():
+    # Arrange
+    number = 800
+    answer = [500, 100, 100, 100]
+    # Act
+    result = convert_hundredth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer
+
+
+def test_break_down_hundreds_less_than_500_to_components():
+    # Arrange
+    number = 400
+    answer = [100, 100, 100, 100]
+    # Act
+    result = convert_hundredth_num_to_numeral_breakdown(number)
+    # Assert
+    assert result == answer
+
+
+def test_break_down_hundreds_equal_to_500():
+    # Arrange
+    number = 500
+    answer = [500]
+    # Act
+    result = convert_hundredth_num_to_numeral_breakdown(number)
     # Assert
     assert result == answer
