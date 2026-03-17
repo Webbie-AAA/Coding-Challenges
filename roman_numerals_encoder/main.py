@@ -55,11 +55,80 @@ def convert_hundredth_num_to_numeral_breakdown(hun_num: int) -> list[int]:
 
 def convert_tens_num_to_numeral_breakdown(tens_num: int) -> list[int]:
     tens_components = []
+    total = 0
+
+    if tens_num < 50:
+        while total != tens_num:
+            total += 10
+            tens_components.append(10)
+        return tens_components
+    if tens_num > 50:
+        total += 50
+        tens_components.append(50)
+        while total != tens_num:
+            total += 10
+            tens_components.append(10)
+        return tens_components
+    if tens_num == 50:
+        tens_components.append(50)
+    return tens_components
 
     ...
 
 
+#  The thousandth/hundredth/tens/units can all be done in a single function. Change later.
+
+
+def convert_under_ten_to_numeral(num: int) -> list[int]:
+    unit_components = []
+    total = 0
+
+    if num < 5:
+        while total != num:
+            total += 1
+            unit_components.append(1)
+        return unit_components
+    if num > 5:
+        total += 5
+        unit_components.append(5)
+        while total != num:
+            total += 1
+            unit_components.append(1)
+        return unit_components
+    if num == 5:
+        unit_components.append(5)
+    return unit_components
+
+
+def combine_unit_breakdown_components(num: int) -> list[int]:
+    unit_value_of_input = break_num_into_unit_values(user_input)
+    number_breakdown = []
+    for num in unit_value_of_input:
+        if len(str(num)) == 4:
+            number_breakdown += convert_thousandth_num_to_numeral_breakdown(
+                num)
+        elif len(str(num)) == 3:
+            number_breakdown += convert_hundredth_num_to_numeral_breakdown(
+                num)
+        elif len(str(num)) == 2:
+            number_breakdown += convert_tens_num_to_numeral_breakdown(num)
+        elif len(str(num)) == 1:
+            number_breakdown += convert_under_ten_to_numeral(num)
+    return number_breakdown
+
+
+def convert_units_to_roman_numerals(nums: list[int]) -> str:
+    numerals_dict = {1: 'I', 5: 'V', 10: 'X',
+                     50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
+    roman_numerals = ''
+    for num in nums:
+        roman_numerals += numerals_dict[num]
+    return roman_numerals
+
+
 if __name__ == "__main__":
-    print(break_num_into_unit_values(1989))
-    print(convert_thousandth_num_to_numeral_breakdown(4000))
-    print(convert_hundredth_num_to_numeral_breakdown(100))
+    user_input = input("Provide a number between 1 and 3999: ")
+    number_breakdown = combine_unit_breakdown_components(user_input)
+    print(convert_units_to_roman_numerals(number_breakdown))
+
+    ...

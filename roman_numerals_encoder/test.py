@@ -1,4 +1,4 @@
-from main import break_num_into_unit_values, convert_thousandth_num_to_numeral_breakdown, convert_hundredth_num_to_numeral_breakdown
+from main import break_num_into_unit_values, convert_thousandth_num_to_numeral_breakdown, convert_hundredth_num_to_numeral_breakdown, convert_tens_num_to_numeral_breakdown
 
 
 def test_given_a_4_digit_num_return_units():
@@ -96,7 +96,7 @@ def test_break_down_tens_greater_than_50_to_components():
     number = 80
     answer = [50, 10, 10, 10]
     # Act
-    result = convert_hundredth_num_to_numeral_breakdown(number)
+    result = convert_tens_num_to_numeral_breakdown(number)
     # Assert
     assert result == answer
 
@@ -106,7 +106,7 @@ def test_break_down_tens_less_than_50_to_components():
     number = 30
     answer = [10, 10, 10]
     # Act
-    result = convert_hundredth_num_to_numeral_breakdown(number)
+    result = convert_tens_num_to_numeral_breakdown(number)
     # Assert
     assert result == answer
 
@@ -116,6 +116,6 @@ def test_break_down_tens_equal_to_50():
     number = 50
     answer = [50]
     # Act
-    result = convert_hundredth_num_to_numeral_breakdown(number)
+    result = convert_tens_num_to_numeral_breakdown(number)
     # Assert
     assert result == answer
