@@ -1,0 +1,46 @@
+Context
+You're building a communication system for an emergency response team. Radio operators need to encode messages into Morse code for transmission over legacy equipment, and decode incoming Morse signals back to readable text.
+
+Task
+Implement two functions that translate text to Morse code and vice versa.
+
+Requirements
+Implement text_to_morse(text: str) -> str to convert plain text to Morse code
+Implement morse_to_text(morse: str) -> str to convert Morse code back to text
+Support letters A-Z (case insensitive) and digits 0-9
+Use standard International Morse Code (dictionary provided)
+Separate letters with single spaces
+Separate words with / (space-slash-space)
+Return empty string for empty input
+Constraints
+Input text contains only letters, numbers, and spaces
+Morse code input uses . for dots and - for dashes
+All input is valid (no error handling required for invalid characters)
+Input strings are at most 1000 characters
+Examples
+Example 1: Basic Word
+Input:
+
+text_to_morse("SOS")
+Output:
+
+"... --- ..."
+Explanation: S=..., O=---, S=..., separated by spaces.
+
+Example 2: Multi-Word Message
+Input:
+
+text_to_morse("HELLO WORLD")
+Output:
+
+".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+Explanation: Words are separated by /.
+
+Example 3: Decoding
+Input:
+
+morse_to_text("... --- ...")
+Output:
+
+"SOS"
+Explanation: Each Morse pattern maps back to its letter.

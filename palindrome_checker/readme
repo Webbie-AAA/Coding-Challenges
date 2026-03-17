@@ -1,0 +1,43 @@
+You're developing a word game application that awards bonus points for palindromes. The game needs to detect when players submit palindromic words or phrases, but players often include spaces, punctuation, and mixed case that should be ignored for palindrome detection.
+
+Task
+Implement a function that checks whether a given string is a palindrome, ignoring case, spaces, and punctuation.
+
+Requirements
+Implement is_palindrome(text: str) -> bool
+Return True if the text reads the same forwards and backwards
+Ignore letter case ("Racecar" is a palindrome)
+Ignore spaces ("A man a plan" checks as "amanaplan")
+Ignore punctuation ("Was it a car?" checks as "wasitacar")
+Empty string is considered a palindrome
+Constraints
+Input is always a string (may be empty)
+Only alphanumeric characters count for the palindrome check
+Unicode/special characters should be ignored
+Examples
+Example 1: Simple Word
+Input:
+
+is_palindrome("racecar")
+Output:
+
+True
+Explanation: "racecar" reversed is "racecar".
+
+Example 2: Phrase with Spaces
+Input:
+
+is_palindrome("A man a plan a canal Panama")
+Output:
+
+True
+Explanation: Removing spaces and ignoring case: "amanaplanacanalpanama" is a palindrome.
+
+Example 3: Non-Palindrome
+Input:
+
+is_palindrome("hello")
+Output:
+
+False
+Explanation: "hello" reversed is "olleh" - not the same.
